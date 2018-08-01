@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      retrofit_generator|retrofit:
+        enabled: true
+
+builders:
+  retrofit:
+    target: ":retrofit_generator"
+    import: "package:retrofit_generator/builder.dart"
+    builder_factories: ["retrofitFactory"]
+    build_extensions: {".dart": [".retrofit.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]

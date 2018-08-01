@@ -1,0 +1,23 @@
+name: example
+description: A sample command-line application.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: rafal.wachol <email@example.com>
+
+environment:
+  sdk: '>=2.0.0-dev.68.0 <3.0.0'
+
+dependencies:
+  retrofit:
+
+dev_dependencies:
+  test: ^1.0.0
+  build_runner: ^0.9.0
+  retrofit_generator:
+
+
+dependency_overrides:
+  retrofit:
+    path: ../retrofit
+  retrofit_generator:
+    path: ../retrofit_generator
