@@ -1,8 +1,13 @@
+library person;
 
-class Person {
+import 'package:built_value/built_value.dart';
 
-  final String name;
+part 'person.g.dart';
 
-  Person(this.name);
+abstract class Person implements Built<Person, PersonBuilder> {
+  Person._();
 
+  String get name;
+
+  factory Person([updates(PersonBuilder b)]) = _$Person;
 }

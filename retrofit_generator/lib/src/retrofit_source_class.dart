@@ -35,13 +35,36 @@ class RetrofitSourceClass {
   }
 
   Method _buildMethod(MethodElement m) {
-    return new Method((b) => b
-      ..name = m.name
-      ..body = Code('return 5;')
-      ..returns = new Reference('int')
-      ..annotations = _createOverrideBuilder()
-    );
+    String code = _createMethodBody();
+    return new Method((b) {
+      return b
+        ..name = m.name
+        ..modifier = MethodModifier.async
+        ..body = Code(code)
+        ..returns = new Reference('Future<Person>')
+        ..annotations = _createOverrideBuilder();
+    });
   }
 
-  ListBuilder<Expression> _createOverrideBuilder() => BuiltList<Expression>([new CodeExpression(new Code('override'))]).toBuilder();
+  String _createMethodBody() {
+    var code = '''
+     final String url = 'http://0.0.0.0:8080/api/people/1';
+     
+     final response = await http.get(url);
+     
+     final listType = FullType(Person);
+     
+     Person person = serializers.deserialize(
+        json.decode(response.body),
+        specifiedType: listType);
+        
+     return person;
+     
+    ''';
+    return code;
+  }
+
+  ListBuilder<Expression> _createOverrideBuilder() =>
+      BuiltList<Expression>([new CodeExpression(new Code('override'))])
+          .toBuilder();
 }

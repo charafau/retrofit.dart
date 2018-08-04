@@ -8,11 +8,16 @@ environment:
   sdk: '>=2.0.0-dev.68.0 <3.0.0'
 
 dependencies:
+  built_collection: '>=2.0.0 <4.0.0'
+  built_value: ^5.5.5
   retrofit:
 
 dev_dependencies:
   test: ^1.0.0
+  source_gen: ^0.9.0
+  build: ^0.12.7+3
   build_runner: ^0.9.0
+  built_value_generator: ^6.0.0
   retrofit_generator:
 
 
