@@ -6,19 +6,24 @@ part of 'sample_service.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-//import 'dart:convert';
 class _$SampleService extends SampleService {
+  _$SampleService(Retrofit retrofit) {
+    this.retrofit = retrofit;
+  }
+
+  Retrofit retrofit;
+
   @override
-  Future<Person> getPerson() async {
-    final String url = 'http://0.0.0.0:8080/api/people/1';
+  Future<TodoDto> getTodo() async {
+    final String url = retrofit.baseUrl + '/todos/1';
 
-    final response = await http.get(url);
+    final response = await retrofit.client.get(url);
 
-    final listType = FullType(Person);
+    final fullType = FullType(TodoDto);
 
-    Person person = serializers.deserialize(json.decode(response.body),
-        specifiedType: listType);
+    TodoDto data = serializers.deserialize(json.decode(response.body),
+        specifiedType: fullType);
 
-    return person;
+    return data;
   }
 }

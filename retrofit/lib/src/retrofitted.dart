@@ -1,4 +1,3 @@
 
-abstract class Retrofitted {
 
-}
+abstract class Retrofitted {}
