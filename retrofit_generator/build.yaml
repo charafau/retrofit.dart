@@ -6,10 +6,12 @@ targets:
 
 builders:
   retrofit:
-    target: ":retrofit_generator"
-    import: "package:retrofit_generator/builder.dart"
-    builder_factories: ["retrofitFactory"]
+    target: ":retrofit_generator" 
+    import: "package:retrofit_generator/builder.dart"  #Required. The import uri that should be used to import the library containing the Builder class. This should always be a package: uri
+    builder_factories: ["retrofitFactory"] 
     build_extensions: {".dart": [".retrofit.g.part"]}
     auto_apply: dependents
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
+
+# check https://pub.dartlang.org/packages/build_config for more info
