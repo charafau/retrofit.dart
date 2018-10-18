@@ -14,7 +14,7 @@ class RetrofitSourceClass {
   RetrofitSourceClass(this.element);
 
   static bool needsBuiltValue(ClassElement element) {
-    return (element.allSupertypes.any((type) => type.name == 'Retrofitted'));
+    return (element.allSupertypes.any((type) => type.name == 'RetrofitRestService'));
   }
 
   String generateCode() {

@@ -1,4 +1,4 @@
-import 'package:retrofit/src/retrofitted.dart';
+import 'package:retrofit/src/retrofit_rest_service.dart';
 import 'package:http/http.dart' as http;
 
 class Retrofit {

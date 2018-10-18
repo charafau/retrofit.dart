@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:example/sample_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:retrofit/src/retrofit.dart';
