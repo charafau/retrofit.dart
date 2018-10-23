@@ -5,6 +5,10 @@ import 'package:build/build.dart';
 import 'package:retrofit_generator/src/retrofit_source_class.dart';
 import 'package:source_gen/source_gen.dart';
 
+/**
+ * THIS SCANS ALL FILES IN PROJECT AND CHECKS IF THIS IS YOUR RetrofitRestService
+ * AND RUNS GENERATOR
+ */
 class RetrofitGenerator extends Generator {
   const RetrofitGenerator();
 
@@ -13,6 +17,7 @@ class RetrofitGenerator extends Generator {
     final result = new StringBuffer();
 
     for (final element in library.allElements) {
+      //check if our current file contains RetrofitRestService
       if (element is ClassElement &&
           RetrofitSourceClass.needsBuiltValue(element)) {
         try {

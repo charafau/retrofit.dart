@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:example/sample_service.dart';
+import 'package:example/todo_dto.dart';
 import 'package:http/http.dart' as http;
 import 'package:retrofit/src/retrofit.dart';
 
@@ -11,12 +12,12 @@ main(List<String> arguments) {
 
   var sampleService = SampleService.create(retrofit);
 
-  doSomething(sampleService);
+  invokeHttpCall(sampleService);
 }
 
-Future<void> doSomething(SampleService sampleService) async {
+Future<void> invokeHttpCall(SampleService sampleService) async {
   print('Fetching...');
-  var asd = await sampleService.getTodo();
+  TodoDto todo = await sampleService.getTodo();
 
-  print('Fetched data is: ${asd.toString()}');
+  print('Fetched data is: ${todo.toString()}');
 }

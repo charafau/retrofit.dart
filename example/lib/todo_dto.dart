@@ -25,14 +25,5 @@ abstract class TodoDto implements Built<TodoDto, TodoDtoBuilder> {
   @BuiltValueField(wireName: 'completed')
   bool get completed;
 
-  String toJson() {
-    return json.encode(serializers.serializeWith(TodoDto.serializer, this));
-  }
-
-  static TodoDto fromJson(String jsonString) {
-    return serializers.deserializeWith(
-        TodoDto.serializer, json.decode(jsonString));
-  }
-
   static Serializer<TodoDto> get serializer => _$todoDtoSerializer;
 }

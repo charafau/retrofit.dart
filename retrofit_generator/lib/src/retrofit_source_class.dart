@@ -21,7 +21,7 @@ class RetrofitSourceClass {
     final _dartfmt = new DartFormatter();
 
     Class generatedClass = new Class((b) => b
-      ..name = '_\$' + element.name
+      ..name = '_\$' + element.name  // name of the current class
       ..fields = ListBuilder([
         Field((b) => b
           ..name = 'retrofit'
